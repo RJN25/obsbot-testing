@@ -2,7 +2,7 @@ import cv2
 
 def main():
     # Try 0, 1, 2 if needed
-    cam_index = 0
+    cam_index = 1
     cap = cv2.VideoCapture(cam_index, cv2.CAP_DSHOW)  # CAP_DSHOW helps on Windows
 
     if not cap.isOpened():
