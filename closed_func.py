@@ -48,9 +48,9 @@ def open_closed_state(pts, prev_state):
     OPEN_TH = 1.45
 
     if score < CLOSED_TH:
-        return "CLOSED", score
+        return "CLOSED", score # isClosed state
     if score > OPEN_TH:
-        return "OPEN", score
+        return "OPEN", score #isOpen state
     return prev_state, score  
 
 def main():
