@@ -1,3 +1,5 @@
+from pathlib import Path
+from datetime import datetime
 import cv2, time, json, math
 import mediapipe as mp
 
@@ -93,6 +95,17 @@ def main():
 
     log_to_file = False
     f = open("hand_stream.jsonl", "a") if log_to_file else None
+
+    # --- session log file (one per run) ---
+    LOG_DIR = Path("logs")
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+    session_name = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    log_path = LOG_DIR / f"hand_stream_{session_name}.jsonl"
+
+    log_to_file = True
+    f = open(log_path, "a", encoding="utf-8") if log_to_file else None
+    print(f"[INFO] Logging to: {log_path}")
 
     with mp_hands.Hands(
         static_image_mode=False,
