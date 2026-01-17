@@ -1,0 +1,4 @@
+mediapipe==0.10.29
+opencv-contrib-python
+opencv-python
+
